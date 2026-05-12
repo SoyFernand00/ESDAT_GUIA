@@ -39,31 +39,31 @@ namespace Arboles
             return r;
 
         }
-        public bool Buscar(int valor)
+        public void Buscar(int valor)
         {
-            return BuscarRecursivo(raiz, valor);
+            BuscarRecursivo(raiz, valor);
             
         }
-        private bool BuscarRecursivo(Nodo r, int valor)
+        private void BuscarRecursivo(Nodo r, int valor)
         {
             if (r == null)
             {
                 Console.WriteLine("Valor no encontrado");
-                return false;
+                return;
             }
 
             if (valor == r.Dato)
             {
-                Console.WriteLine("Valor encontrado: " + valor);
-                return true;
+                Console.WriteLine("Valor encontrado: "+valor);
+                return;
             }
             else if (valor < r.Dato)
             {
-                return BuscarRecursivo(r.Izquierda, valor);
+                BuscarRecursivo(r.Izquierda, valor);
             }
             else
             {
-                return BuscarRecursivo(r.Derecha, valor);
+                BuscarRecursivo(r.Derecha, valor);
             }
 
         }
